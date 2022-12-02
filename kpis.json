@@ -1,0 +1,184 @@
+[
+    {
+        "model": "api.category",
+        "pk": 1,
+        "fields": {
+            "bunit": "Mytilineos Group",
+            "description": null
+        }
+    },
+    {
+        "model": "api.category",
+        "pk": 2,
+        "fields": {
+            "bunit": "Power & Gas",
+            "description": null
+        }
+    },
+    {
+        "model": "api.category",
+        "pk": 3,
+        "fields": {
+            "bunit": "EPC & Infrastructure",
+            "description": null
+        }
+    },
+    {
+        "model": "api.category",
+        "pk": 4,
+        "fields": {
+            "bunit": "Metallurgy & Mining",
+            "description": null
+        }
+    },
+    {
+        "model": "api.category",
+        "pk": 5,
+        "fields": {
+            "bunit": "Other",
+            "description": null
+        }
+    },
+    {
+        "model": "api.category",
+        "pk": 6,
+        "fields": {
+            "bunit": "RSD",
+            "description": null
+        }
+    },
+    {
+        "model": "api.category",
+        "pk": 7,
+        "fields": {
+            "bunit": "SES",
+            "description": "some"
+        }
+    },
+    {
+        "model": "api.kpi",
+        "pk": 1,
+        "fields": {
+            "category": 5,
+            "owner": 1,
+            "kpiName": "test1kpiName",
+            "subKpiCategoryOne": "test1subKpiCategoryOne",
+            "subKpiCategoryTwo": "test1subKpiCategoryTwo",
+            "amount": "-1234567891.450",
+            "updated": "2022-10-31T08:56:39.153Z",
+            "created": "2022-10-31T08:56:39.115Z"
+        }
+    },
+    {
+        "model": "api.kpi",
+        "pk": 2,
+        "fields": {
+            "category": 1,
+            "owner": 1,
+            "kpiName": "test2kpiName",
+            "subKpiCategoryOne": "test2subKpiCategoryOne",
+            "subKpiCategoryTwo": "test2subKpiCategoryTwo",
+            "amount": "2000.150",
+            "updated": "2022-10-31T09:11:55.867Z",
+            "created": "2022-10-31T09:11:55.836Z"
+        }
+    },
+    {
+        "model": "api.kpi",
+        "pk": 3,
+        "fields": {
+            "category": 3,
+            "owner": 1,
+            "kpiName": "test3kpiName",
+            "subKpiCategoryOne": "test3subKpiCategoryOne",
+            "subKpiCategoryTwo": "test3subKpiCategoryTwo",
+            "amount": "1000.000",
+            "updated": "2022-10-31T09:12:54.167Z",
+            "created": "2022-10-31T09:12:54.126Z"
+        }
+    },
+    {
+        "model": "api.kpi",
+        "pk": 4,
+        "fields": {
+            "category": 6,
+            "owner": 1,
+            "kpiName": "test4kpiName",
+            "subKpiCategoryOne": "test4subKpiCategoryOne",
+            "subKpiCategoryTwo": "test4subKpiCategoryTwo",
+            "amount": "1098576.230",
+            "updated": "2022-10-31T09:16:16.647Z",
+            "created": "2022-10-31T09:16:16.613Z"
+        }
+    },
+    {
+        "model": "api.kpi",
+        "pk": 5,
+        "fields": {
+            "category": 4,
+            "owner": 1,
+            "kpiName": "test6kpiName",
+            "subKpiCategoryOne": "test6subKpiCategoryOne",
+            "subKpiCategoryTwo": "test6subKpiCategoryTwo",
+            "amount": "5.400",
+            "updated": "2022-10-31T09:29:48.695Z",
+            "created": "2022-10-31T09:29:48.665Z"
+        }
+    },
+    {
+        "model": "api.kpi",
+        "pk": 6,
+        "fields": {
+            "category": 2,
+            "owner": 1,
+            "kpiName": "test7kpiName",
+            "subKpiCategoryOne": "test7subKpiCategoryOne",
+            "subKpiCategoryTwo": "test7subKpiCategoryTwo",
+            "amount": "122.220",
+            "updated": "2022-10-31T09:32:20.852Z",
+            "created": "2022-10-31T09:32:20.828Z"
+        }
+    },
+    {
+        "model": "api.kpi",
+        "pk": 7,
+        "fields": {
+            "category": 5,
+            "owner": 1,
+            "kpiName": "test7kpiName",
+            "subKpiCategoryOne": "test7subKpiCategoryOne",
+            "subKpiCategoryTwo": "test7subKpiCategoryTwo",
+            "amount": "0.000",
+            "updated": "2022-10-31T11:46:24.290Z",
+            "created": "2022-10-31T11:46:24.224Z"
+        }
+    },
+    {
+        "model": "api.kpi",
+        "pk": 8,
+        "fields": {
+            "category": 5,
+            "owner": 1,
+            "kpiName": "test9kpiName",
+            "subKpiCategoryOne": "test9subKpiCategoryOne",
+            "subKpiCategoryTwo": "test9subKpiCategoryTwo",
+            "amount": "1.000",
+            "updated": "2022-11-01T07:50:11.185Z",
+            "created": "2022-11-01T07:50:11.155Z"
+        }
+    },
+    {
+        "model": "api.kpi",
+        "pk": 9,
+        "fields": {
+            "category": 5,
+            "owner": 1,
+            "kpiName": "test10kpiName",
+            "subKpiCategoryOne": "test10subKpiCategoryOne",
+            "subKpiCategoryTwo": "test10subKpiCategoryTwo",
+            "amount": "2.000",
+            "updated": "2022-11-01T07:50:11.257Z",
+            "created": "2022-11-01T07:50:11.231Z"
+        }
+    }
+]

@@ -1,0 +1,110 @@
+@import url('http://fonts.cdnfonts.com/css/stag-sans-light');
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    font-family: 'Stag Sans Light', sans-serif;
+}
+
+/* Utilities */
+
+ul {
+    list-style-type: none;
+}
+
+/* Navbar */
+
+.navbar {
+  background-color: rgba(180,183,185,0.5);
+  height: 5rem;
+}
+
+.navbar ul li a:hover, .active {
+  border-bottom: 0.125rem black solid;
+}
+
+.navbar ul li {
+  line-height: 2.3rem;
+}
+
+#logout a:hover {
+  border-bottom: none;
+  background-color: #e8bbc0;
+  border-radius: 0.25rem;
+  transition: background-color 0.2s ease-out;
+  -webkit-transition: background-color 0.2s ease-out;
+  -moz-transition: background-color 0.2s ease-out;
+  -o-transition: background-color 0.2s ease-out;
+}
+
+/* react-select */
+
+.css-b62m3t-container {
+  border: none;
+  padding-left: 0.1875rem;
+}
+
+/* GridClient */
+
+canvas {
+  max-width: 12.5rem;
+  max-height: 12.5rem;
+}
+
+/* Footer */
+
+footer {
+  background-color: rgba(180,183,185,0.5);
+  height: 3.75rem;
+  font-size: 0.9375rem;
+}
+
+/* LG */
+@media (max-width: 1200px) {}
+
+/* LG */
+@media (max-width: 992px) {}
+
+/* MD */
+@media (max-width: 768px) {
+  .gridjs-table {
+    font-size: 0.9rem;
+  }
+
+  .gridjs-table td.gridjs-td {
+    padding: 0.625rem 0.3125rem;
+  }
+
+  .gridjs-table tr > th:nth-child(4), .gridjs-table tr > td:nth-child(4), 
+  .gridjs-table tr > th:nth-child(5), .gridjs-table tr > td:nth-child(5),
+  .gridjs-table tr > th:nth-child(8), .gridjs-table tr > td:nth-child(8) {
+    display: none
+  }
+}
+
+/* SM */
+@media (max-width: 576px) {
+
+/* Navbar */
+.navbar {
+  height: 8rem;
+}
+
+.logo img {
+  transform: translate(0rem, -0.3125rem); /* W3C */
+  -webkit-transform: translate(0rem, -0.3125rem); /* Safari & Chrome */
+  -moz-transform: translate(0rem, -0.3125rem); /* Firefox */
+  -ms-transform: translate(0rem, -0.3125rem); /* Internet Explorer */
+  -o-transform: translate(0rem, -0.3125rem); /* Opera */
+}
+
+.navbar ul {
+  background-color: rgba(0, 0, 0, 0.1);
+  font-size: 0.818rem;
+}
+
+}
