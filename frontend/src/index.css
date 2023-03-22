@@ -41,6 +41,49 @@ ul {
   -o-transition: background-color 0.2s ease-out;
 }
 
+/* ADDKPIs */
+
+/* https://codepen.io/tlongren/pen/RGLrve */
+.or_divider {
+  position: relative;
+  border-bottom: 1px solid #f0f0f0;
+  margin-bottom: 1.875rem;
+  margin-top: 1.875rem;;
+}
+
+.or_divider:before {
+  position: absolute;
+  content: '';
+  width: 1.875rem;;
+  height: 1.875rem;;
+  border: 1px solid #f0f0f0;
+  left: 50%;
+  margin-left: -0.9375rem;
+  top: 50%;
+  background: #fff;
+  margin-top: -0.9375rem;
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.or_divider:after {
+  position: absolute;
+  content: 'OR';
+  font-weight: bold;
+  width: 1.25rem;
+  height: 1.25rem;
+  left: 50%;
+  margin-left: -0.625rem;
+  top: 50%;
+  margin-top: -0.625rem;
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(0deg);
+}
+
 /* react-select */
 
 .css-b62m3t-container {

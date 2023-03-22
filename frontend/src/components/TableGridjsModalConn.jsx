@@ -28,6 +28,27 @@ const TableGridjsModalConn = ({ filteredKpis, authToken, handleEdit, handleDel }
                 modDict[tdSiblings[i].getAttribute("data-column-id")] = tdSiblings[i].innerText
             }
         }
+
+        const idxs = [1, 3, 4, 6]
+        const keys = ["kpiName", "subKpiCategoryOne", "subKpiCategoryTwo", "amount"]
+        let i = 0; let editClickDiff = false;
+        for (const [key, value] of Object.entries(modDict)) {
+            if (keys.includes(key)) {
+                if (key === "amount") {
+                    editClickDiff = value !== (new Intl.NumberFormat("de-DE", {
+                        style: "currency",
+                        currency: "EUR"
+                      }).format(row._cells[idxs[i]].data));
+                } else {
+                    editClickDiff = value !== row._cells[idxs[i]].data;
+                }
+                if(editClickDiff) break;
+                i++;
+            }
+        }
+        if(!editClickDiff) return;
+        //localStorage.setItem('currentPage', document.querySelector('.gridjs-currentPage').innerText);
+
         modDict[Object.keys(modDict)[Object.keys(modDict).length - 1]] = parseLocaleNumber(modDict[Object.keys(modDict)[Object.keys(modDict).length - 1]])
 
         //fetch PUT
@@ -71,6 +92,7 @@ const TableGridjsModalConn = ({ filteredKpis, authToken, handleEdit, handleDel }
             alert('Something went wrong. Not deleted')
         }
 
+        //localStorage.setItem('currentPage', document.querySelector('.gridjs-currentPage').innerText);
     }
 
     const contentEditEventKeyDown = (e) => { //https://github.com/miguelgrinberg/flask-gridjs/blob/main/templates/editable_table.html
@@ -88,7 +110,7 @@ const TableGridjsModalConn = ({ filteredKpis, authToken, handleEdit, handleDel }
     useEffect(() => {
         document.addEventListener("keydown", contentEditEventKeyDown, false)
         return () => {
-          document.removeEventListener("keydown", contentEditEventKeyDown, false)
+            document.removeEventListener("keydown", contentEditEventKeyDown, false)
         }
     }, [])
 
@@ -187,7 +209,15 @@ const TableGridjsModalConn = ({ filteredKpis, authToken, handleEdit, handleDel }
                     }}
                     sort={true}
                     pagination={{
-                    enabled: true
+                        enabled: true,
+                        limit: 10,
+                        /*
+                        page: localStorage.getItem('currentPage') ? 
+                              Math.min(
+                                Math.ceil(filteredKpis.length / 10) - 1, 
+                                (parseInt(localStorage.getItem('currentPage')) - 1)
+                              ) : 0
+                        */
                     }}
                 />
                 }

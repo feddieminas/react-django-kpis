@@ -17,11 +17,14 @@ const Navbar = () => {
                     <CustomLink to="/gridjsClient">GRIDJS_CL</CustomLink>
                     <CustomLink to="/login">LOGIN</CustomLink>
                     {
+                        loggedin.success && (<CustomLink to="/kpis/add">ADDKPIs</CustomLink>)
+                    }
+                    {
                         loggedin.success &&
                         <li id="logout">
                             <Link to onClick={logoutUserWithBlackListToken} className="mx-1 p-2 text-decoration-none text-dark">
-                                <i className="bi bi-box-arrow-right" style={{ "fontSize": "1.2rem","marginRight": "0.15em" }}></i>
-                                LOGOUT
+                                <i className="bi bi-box-arrow-right" style={{ "fontSize": "1.2rem" }}></i>
+                                <span className="d-none d-sm-inline">LOGOUT</span>
                             </Link>
                         </li>
                     }

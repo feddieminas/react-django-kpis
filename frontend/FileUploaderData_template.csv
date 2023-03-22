@@ -1,0 +1,5 @@
+CATEGORY;KPINAME;SUBKPICATEGORYONE;SUBKPICATEGORYTWO;AMOUNT
+Other;testFU1kpiName;testFU1subKpiCategoryOne;testFU1subKpiCategoryTwo;2
+Power & Gas;testFU2kpiName;testFU2subKpiCategoryOne;testFU2subKpiCategoryTwo;200
+RSD;testFU3kpiName;testFU3subKpiCategoryOne;;234.12
+Mytilineos Group;testFU4kpiName;testFU4subKpiCategoryOne;testFU4subKpiCategoryTwo;1012345.67

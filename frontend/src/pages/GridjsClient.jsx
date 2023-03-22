@@ -6,6 +6,7 @@ import makeAnimated from "react-select/animated"
 import SectorMultiSelect from "../components/SectorMultiSelect"
 import { components } from "react-select"
 
+//https://www.youtube.com/watch?v=E1cklb4aeXA
 //https://blog.webdevsimplified.com/2020-05/memoization-in-react/
 //https://www.toptal.com/react/react-memoization
 //https://www.developerway.com/posts/how-to-use-memo-use-callback

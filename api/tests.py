@@ -239,6 +239,9 @@ class KPITests(APITestCase):
         dt = datetime.today().strftime('%Y-%m-%d')
         response = self.client.get(url, {'q': dt}, headers=self.headers, format='json')
         self.assertTrue(len(response.json()) == KPI.objects.count())
+        ## check date and time
+        response = self.client.get(url, {'q': dt, 'time': '1'}, headers=self.headers, format='json')
+        self.assertTrue(len(response.json()) == KPI.objects.count())       
         ## check string. we insert the text test2subKpiCategoryOne and should result to two records ##
         response = self.client.get(url, {'q': 'test2subKpiCategoryOne'}, headers=self.headers, format='json')
         self.assertTrue(len(response.json()) == 2)
