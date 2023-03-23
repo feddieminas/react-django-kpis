@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 import { Grid, _ } from 'gridjs-react'
 import "gridjs/dist/theme/mermaid.min.css"
 import { getSiblings, parseLocaleNumber } from "../utils/Other"
@@ -8,6 +8,11 @@ import createModal from "../components/Modal"
 const TableGridjsModalConn = ({ filteredKpis, authToken, handleEdit, handleDel }) => {
     const savedValue = useRef()
     const upToTablet = useMediaQuery('(max-width: 768px)')
+    /* using useState to persist Page
+    const [page, setPage] = useState(()=> localStorage.getItem('currentPage') ? +localStorage.getItem('currentPage') : null);
+    */
+    /* using useRef to persist Page */
+    const savedPageValue = useRef(1)
 
     const rowClick = (e, row) => {
         e.preventDefault()
@@ -46,8 +51,13 @@ const TableGridjsModalConn = ({ filteredKpis, authToken, handleEdit, handleDel }
                 i++;
             }
         }
+
+        /* using useState to persist Page... keep here if one comes back to Page and person "bookmarks" his page last visited
+        setPage(document.querySelector(".gridjs-currentPage").innerText)
+        */
+        /* using useRef to persist Page */
+        savedPageValue.current = document.querySelector(".gridjs-currentPage").innerText;
         if(!editClickDiff) return;
-        //localStorage.setItem('currentPage', document.querySelector('.gridjs-currentPage').innerText);
 
         modDict[Object.keys(modDict)[Object.keys(modDict).length - 1]] = parseLocaleNumber(modDict[Object.keys(modDict)[Object.keys(modDict).length - 1]])
 
@@ -92,7 +102,11 @@ const TableGridjsModalConn = ({ filteredKpis, authToken, handleEdit, handleDel }
             alert('Something went wrong. Not deleted')
         }
 
-        //localStorage.setItem('currentPage', document.querySelector('.gridjs-currentPage').innerText);
+        /* using useState to persist Page
+        setPage(document.querySelector(".gridjs-currentPage").innerText)
+        */
+        /* using useRef to persist Page */
+        savedPageValue.current = document.querySelector(".gridjs-currentPage").innerText;
     }
 
     const contentEditEventKeyDown = (e) => { //https://github.com/miguelgrinberg/flask-gridjs/blob/main/templates/editable_table.html
@@ -109,10 +123,21 @@ const TableGridjsModalConn = ({ filteredKpis, authToken, handleEdit, handleDel }
 
     useEffect(() => {
         document.addEventListener("keydown", contentEditEventKeyDown, false)
+
+        /* using useState to persist Page
+        if (page !== null) {
+            localStorage.setItem('currentPage', page);
+        }
+        */
+        /* using useRef to persist Page */
+        savedPageValue.current = localStorage.getItem('currentPage') ? +localStorage.getItem('currentPage') : 1;
+
         return () => {
             document.removeEventListener("keydown", contentEditEventKeyDown, false)
+            /* using useRef to persist Page */
+            localStorage.setItem('currentPage', savedPageValue.current);
         }
-    }, [])
+    }, []) //}, [page]) /* using useState to persist Page */
 
     const contentEditEvent = (e, row) => { // https://stackoverflow.com/questions/37440408/how-to-detect-esc-key-press-in-react-and-how-to-handle-it
         switch (e.type) {
@@ -211,13 +236,11 @@ const TableGridjsModalConn = ({ filteredKpis, authToken, handleEdit, handleDel }
                     pagination={{
                         enabled: true,
                         limit: 10,
-                        /*
-                        page: localStorage.getItem('currentPage') ? 
-                              Math.min(
-                                Math.ceil(filteredKpis.length / 10) - 1, 
-                                (parseInt(localStorage.getItem('currentPage')) - 1)
-                              ) : 0
+                        /* using useState to persist Page
+                        page: page === null ? 0 : Math.min(Math.ceil(filteredKpis.length / 10) - 1, page - 1)
                         */
+                        /* using useRef to persist Page */
+                        page: savedPageValue.current === null ? 0 : Math.min(Math.ceil(filteredKpis.length / 10) - 1, savedPageValue.current - 1)
                     }}
                 />
                 }
